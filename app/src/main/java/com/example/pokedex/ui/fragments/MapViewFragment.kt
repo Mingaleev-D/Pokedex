@@ -33,7 +33,7 @@ class MapViewFragment : Fragment(R.layout.fragment_map) {
       binding.mapFragmentBack.setOnClickListener { findNavController().popBackStack() }
 
       initObserver()
-      lifecycleScope.launchWhenCreated { viewModel.getPokemonList() }
+      lifecycleScope.launchWhenStarted { viewModel.getPokemonList() }
    }
 
    private fun initObserver() {
@@ -62,7 +62,7 @@ class MapViewFragment : Fragment(R.layout.fragment_map) {
                showProgress(false)
                Toast.makeText(requireContext(), "Pokemon not found", Toast.LENGTH_SHORT).show()
             }
-            is Resource.Expired -> TODO()
+            is Resource.Expired ->  { }
             is Resource.Loading -> {
                showProgress(true)
             }
