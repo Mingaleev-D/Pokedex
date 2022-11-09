@@ -80,7 +80,7 @@ class MainRepositoryImpl @Inject constructor(
          }
       }
       pokeDB.insertPokemonList(pokemonList)
-      return Resource.Success(pokeDB.getPokemon())
+      return Resource.Success(pokemonList)
 
    }
 
